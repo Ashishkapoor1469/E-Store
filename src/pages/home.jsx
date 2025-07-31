@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import  Navbar  from "./components/layout/navbar";
-import  ProductList  from "./components/ui/productList";
-import  Hero  from "./components/home/hero";
-import  Footer  from "./components/home/footer";
-import  ProfileDrawer  from "./components/shared/profiledrawer";
-import  CartDrawer  from "./components/shared/carddrawer";
-import products from "./data/product";
+import  Navbar  from "../components/layout/navbar";
+import  ProductList  from "../components/ui/productList";
+import  Hero  from "../components/home/hero";
+import  Footer  from "../components/home/footer";
+import  ProfileDrawer  from "../components/shared/profiledrawer";
+import  CartDrawer  from "../components/shared/carddrawer";
+import products from "../data/product";
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState([]);
@@ -36,12 +36,11 @@ const App = () => {
         onCartClick={() => setShowCartDrawer(true)}
       />
       
-      {searchQuery===""?<Hero />:<></>} 
+      <Hero />
       <div className="p-6">
         <ProductList products={filteredProducts} onAddToCart={handleAddToCart} />
       </div>
-      
-    {searchQuery===""?<Footer/>:<></>}
+      <Footer />
 
       {showProfile && <ProfileDrawer onClose={() => setShowProfile(false)} />}
       {showCartDrawer && (
